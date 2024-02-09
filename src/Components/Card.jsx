@@ -1,59 +1,26 @@
-// import { click } from '@testing-library/user-event/dist/click';
-import { FcLike, FcLikePlaceholder } from 'react-icons/fc';
-import { toast } from 'react-toastify';
 
-const Card = (props) => {
-    let likedCourses = props.likedCourses;
-    let setLikedCourses = props.setLikedCourses;
+import React from 'react';
+import { FcLikePlaceholder } from 'react-icons/fc';
 
-    function clickHandler() {
-        // Logic
-        if (likedCourses.includes(props.course.id)) {
-            // pahle se liked 
-            setLikedCourses((prev) => prev.filter((cid) => cid !== props.course.id));
-            toast.warning("Liked Removed");
-        }
-        else {
-            // pahle se like nahi hai course 
-            // insert karne h y course like course me 
-            if (likedCourses.length === 0) {
-                setLikedCourses([props.course.id]);
-            }
-            else {
-                setLikedCourses((prev) => [...prev, props.course.id]);
-            }
-            toast.success("Liked Successfully");
-        }
-    }
-
-    return (
-        <div className='bg-bgDark bg-opacity-80 w-[300px] rounded-md overflow-hidden'>
-            <div className='relative '>
-                <img src={props.course.image.url} alt="Course Image" className='' />
-
-                <div className='rounded-full w-[40px] h-[40px] bg-white absolute right-2 bottom-[-12px] grid place-items-center'>
-                    <button onClick={clickHandler}>
-                        {
-                            !likedCourses.includes(props.course.id) ? <FcLikePlaceholder fontSize="1.75rem" /> : <FcLike fontSize="1.75rem" />
-                        }
-                    </button>
-                </div>
-            </div>
-
-
-
-            <div className='p-4'>
-                <p className='text-white text-lg font-semibold leading-6'>{props.course.title}</p>
-                <p className='mt-2 text-white'>
-                    {
-                        props.course.description.length > 100 ? (props.course.description.substring(0, 100) + "...") : (props.course.description)
-                    }
-
-                </p>
-            </div>
-
+const Card = ({ course, onEnroll }) => {
+  return (
+    <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/3 xl:w-1/4 p-4 relative">
+      <div className="bg-white shadow-md rounded-lg overflow-hidden">
+        <div className="relative">
+          {course.image && course.image.url && (
+            <img src={course.image.url} alt="Course Image" className="w-full h-40 object-cover" />
+          )}
         </div>
-    )
-}
+        <div className="p-4">
+          <p className="title text-lg font-semibold text-gray-800">{course.title}</p>
+          <p className="description text-sm text-gray-600 mt-2">{course.description}</p>
+          <div className="flex justify-between items-center mt-4">
+            <button className="enroll-button px-4 py-2 rounded-md bg-blue-500 text-white text-sm font-semibold" onClick={() => onEnroll(course.id)}>Enroll Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default Card
+export default Card;
