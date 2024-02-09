@@ -1,1 +1,33 @@
-Results-driven B.Tech student in Computer Science with expertise in HTML, CSS, and JavaScript. Proficient in React, Redux Toolkit, and Tailwind CSS, showcasing a solid foundation in front-end technologies. Demonstrated ability to create responsive, dynamic web applications with clean UI designs. Eager to leverage technical skills and contribute as a dedicated Web Developer. Active participant in open-source projects, with a commitment to staying updated on industry trends. A detail-oriented and collaborative team player seeking opportunities to deliver high-quality, user-friendly web solutions.
+# Project Title
+    Project
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Introduction
+
+
+
+## Features
+
+
+## Installation
+
+
+
+## Usage
+
+
+## Contributing
+
+
+
+## License
+
+
